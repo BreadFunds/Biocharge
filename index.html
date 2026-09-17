@@ -10,6 +10,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* Standardized image formatting */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Centered referential image */
+.referential-image {
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+}
+
 :root{
   --navy:#3E7CB8;
   --navy-2:#2C5D8F;
@@ -19,6 +33,7 @@
   --ink-soft:#5B5850;
   --line:#DDD6C6;
   --wood:#9C7A4B;
+  --red-accent:#E5534B; /* Lighter red accent */
 }
 
 *{scroll-behavior:smooth;}
@@ -30,7 +45,7 @@ body{
 h1,h2,h3,.display-font{font-family:'Quicksand',sans-serif;}
 .mono{font-family:'Nunito',sans-serif;}
 
-/* ---------- photo placeholder (for the team's real photos) ---------- */
+/* ---------- photo container (ready for img insertion) ---------- */
 .photo-slot{
   position:relative;
   background:var(--paper-2);
@@ -39,8 +54,14 @@ h1,h2,h3,.display-font{font-family:'Quicksand',sans-serif;}
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;color:var(--ink-soft);
   padding:1.2rem;height:100%;min-height:200px;
+  overflow:hidden;
 }
-.photo-slot svg{width:34px;height:34px;opacity:.4;margin-bottom:.6rem;}
+.photo-slot img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:.3rem;
+}
 .photo-slot .ph-caption{font-size:.78rem;max-width:16rem;line-height:1.4;}
 .photo-slot .ph-tag{
   font-family:'Nunito',sans-serif;font-size:.62rem;letter-spacing:.06em;
@@ -178,7 +199,7 @@ section{padding:5rem 0;}
   font-family:'Quicksand',sans-serif;font-size:clamp(1.25rem,2.4vw,1.7rem);
   line-height:1.55;font-weight:500;
 }
-.conclusion-quote strong{color:#D9C89A;font-weight:700;}
+.conclusion-quote strong{color:var(--red-accent);font-weight:700;}
 
 /* ---------- recommendation ---------- */
 .rec-badge{
@@ -191,6 +212,8 @@ section{padding:5rem 0;}
 .ref-list{list-style:none;padding:0;margin:0;}
 .ref-list li{padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--ink-soft);}
 .ref-list li:last-child{border-bottom:none;}
+.ref-list a{color:var(--navy);text-decoration:underline;}
+.ref-list a:hover{color:var(--navy-2);}
 footer{background:var(--navy-2);color:rgba(239,235,221,.6);font-size:.8rem;}
 footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700;}
 .logo-pill{
@@ -221,7 +244,7 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
         <li class="nav-item"><a class="nav-link" href="#method">Methodology</a></li>
         <li class="nav-item"><a class="nav-link" href="#data">Results</a></li>
         <li class="nav-item"><a class="nav-link" href="#conclusion">Conclusion</a></li>
-        <li class="nav-item"><a class="nav-link" href="#recommendation">Recommendations</a></li>
+        <li class="nav-item"><a class="nav-link" href="#recommendation">Future Development</a></li>
         <li class="nav-item"><a class="nav-link" href="#references">References</a></li>
       </ul>
     </div>
@@ -243,10 +266,9 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
       </div>
       <div class="col-lg-6">
         <div class="hero-figure">
-          <div class="photo-slot" style="min-height:280px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-            <div class="ph-tag">Figure 1</div>
-            <p class="ph-caption">foto sel superkapasitor kita</p>
+          <!-- Added black background to seamlessly fit the black photo backdrop -->
+          <div class="photo-slot" style="height: 300px; background: #000;">
+            <img src="images/product.jpeg" alt="foto sel superkapasitor" style="object-fit: contain; width: 100%; height: 100%;">
           </div>
           <div class="spec-row">
             <div><div class="num">500.92 F</div><div class="lbl">Capacitance</div></div>
@@ -287,23 +309,17 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
         <div class="row g-3">
           <div class="col-6">
             <div class="photo-slot">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-              <div class="ph-tag">Figure 2</div>
-              <p class="ph-caption">foto limbah</p>
+              <img src="/images/coconut.jpeg" alt="foto limbah">
             </div>
           </div>
           <div class="col-6">
             <div class="photo-slot">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-              <div class="ph-tag">Figure 3</div>
-              <p class="ph-caption">foto biochar</p>
+              <img src="/images/burnt coconut.jpeg" alt="foto biochar">
             </div>
           </div>
           <div class="col-12">
             <div class="photo-slot" style="min-height:160px;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-              <div class="ph-tag">Figure 4</div>
-              <p class="ph-caption">foto lab kita?</p>
+              <img src="/images/Foto at lab.jpeg" alt="foto lab">
             </div>
           </div>
         </div>
@@ -321,37 +337,34 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
     <div class="row g-4 align-items-start mb-4">
       <div class="col-lg-5">
         <div class="photo-slot" style="min-height:220px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-          <div class="ph-tag">Team photo</div>
-          <p class="ph-caption">Fotbar</p>
+          <img src="images/Foto bareng.jpeg" alt="Fotbar">
         </div>
       </div>
       <div class="col-lg-7">
-        <p style="color:var(--ink-soft);">
-          We are students at SMA Swasta Maitreyawira, Deli Serdang. [latar belakang pribadi kita ikut lomba]
+        <p style="color:var(--ink-soft);font-size:clamp(1.0rem,2vw,1.5rem);" class="mt-2">
+          We are students at SMA Swasta Maitreyawira, Deli Serdang. Our school is a unique school, due to its emphasis on moral. Our curriculum and teachers have always taught us to prioritize human life above all else. Through hard work and plenty of help, our aspirations were brought to life by BIOCHARGE. Which isn't only an alternative to the conventional supercapacitor, but also a way to help the world and the people in it.
         </p>
       </div>
     </div>
 
-    <div class="row g-3">
+    <div class="row g-3 align-items-stretch">
       <div class="col-lg-8">
         <div class="team-card">
           <div class="role mb-2">Team members</div>
           <ul class="member-list">
             <li><span class="member-name">Princess Lim</span><span class="member-role">Leader</span></li>
-            <li><span class="member-name">Barron Nathaniel Lim</span><span class="member-role">[Peran spesifik (nanti diskusi)]</span></li>
-            <li><span class="member-name">Bryan Terrance Zhong</span><span class="member-role">[Peran spesifik (nanti diskusi)]</span></li>
-            <li><span class="member-name">Kevin Cuaca</span><span class="member-role">[Peran spesifik (nanti diskusi)]</span></li>
-            <li><span class="member-name">Lionel Surya Gandra</span><span class="member-role">[Peran spesifik (nanti diskusi)]</span></li>
-            <li><span class="member-name">Savariyo Aurelius Halim</span><span class="member-role">[Peran spesifik (nanti diskusi)]</span></li>
+            <li><span class="member-name">Barron Nathaniel Lim</span><span class="member-role">Member</span></li>
+            <li><span class="member-name">Bryan Terrance Zhong</span><span class="member-role">Member</span></li>
+            <li><span class="member-name">Kevin Cuaca</span><span class="member-role">Member</span></li>
+            <li><span class="member-name">Lionel Surya Gandra</span><span class="member-role">Member</span></li>
+            <li><span class="member-name">Savariyo Aurelius Halim</span><span class="member-role">Member</span></li>
           </ul>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="team-card h-100">
-          <div class="role">Supervisor</div>
-          <h6>Sir Satria Halim</h6>
-          <p class="mb-0" style="font-size:.85rem;color:var(--ink-soft);">[butuh taruh mata pelajaran kah?]</p>
+      <div class="col-lg-4 text-center">
+        <div class="team-card d-flex flex-column justify-content-center align-items-center">
+          <div class="role mb-2">Supervisor</div>
+          <h3 class="mb-0">Satria Halim S.T. Gr</h3>
         </div>
       </div>
     </div>
@@ -366,36 +379,8 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
     <h2 class="fw-bold mb-2" style="font-size:clamp(1.8rem,3vw,2.3rem);">Fabrication and testing procedure</h2>
     <p class="mb-5" style="color:var(--ink-soft);max-width:42rem;">Each cell was fabricated from carbonized coconut shell and taken through a fixed charge-and-measurement sequence before being classified as a working supercapacitor.</p>
 
-    <h6 class="mb-3" style="font-family:'Nunito',sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);">Process gallery</h6>
-    <div class="row g-3 mb-5">
-      <div class="col-6 col-md-3">
-        <div class="photo-slot" style="min-height:170px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-          <p class="ph-caption">pirolisis</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="photo-slot" style="min-height:170px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-          <p class="ph-caption">aktivasi carbon</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="photo-slot" style="min-height:170px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-          <p class="ph-caption">paste biocharnya</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="photo-slot" style="min-height:170px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-          <p class="ph-caption">pembuatan selnya</p>
-        </div>
-      </div>
-    </div>
-
     <h6 class="mb-3" style="font-family:'Nunito',sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);">Test sequence</h6>
-    <div class="row g-3 flow-track">
+    <div class="row g-3 flow-track mb-5">
       <div class="col-6 col-md-3">
         <div class="flow-node text-center"><div class="n-index">1</div><h6>Start</h6><p>Cell prepared for testing</p></div>
       </div>
@@ -409,7 +394,7 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
         <div class="flow-node text-center"><div class="n-index">4</div><h6>Spark test</h6><p>Short-circuit safety check</p></div>
       </div>
     </div>
-    <div class="row g-3 mt-1">
+    <div class="row g-3 mt-1 mb-5">
       <div class="col-6 col-md-3">
         <div class="flow-node decision text-center">
           <div class="n-index">5</div><h6>Capacitance OK?</h6><p>Pass → retest for consistency</p>
@@ -429,7 +414,17 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
         <div class="flow-node text-center"><div class="n-index">8</div><h6>End</h6><p>Result logged</p></div>
       </div>
     </div>
-  </div>
+
+    <h6 class="mb-3" style="font-family:'Nunito',sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);">Referential image</h6>
+    <div class="row g-3">
+      <div class="col-1"></div>
+      <div class="col-10 w-75">
+        <div class="photo-slot" style="min-height:170px;">
+          <img src="images/foto pirolisis.jpg" alt="pirolisis">
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
 </section>
 <div class="divider"></div>
 
@@ -454,8 +449,7 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
     <div class="row g-4 align-items-center mb-5">
       <div class="col-md-5">
         <div class="photo-slot" style="min-height:200px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-          <p class="ph-caption">Foto hasil multimeter</p>
+          <img src="images/multimeter.png" alt="Foto hasil multimeter">
         </div>
       </div>
       <div class="col-md-7">
@@ -465,13 +459,22 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
 
     <div class="table-responsive rounded overflow-hidden" style="border:1px solid var(--line);">
       <table class="table data-table mb-0">
-        <thead><tr><th>Parameter</th><th>Specification</th><th>Application</th></tr></thead>
+        <thead class="text-center"><tr><th>Parameter</th><th>Specification</th><th>Usage</th></tr></thead>
         <tbody>
-          <tr><td><strong>Energy density</strong></td><td class="mono">4.59 Wh/kg</td><td>High-power, rapid-cycle, low-energy tasks across electronic systems</td></tr>
-          <tr><td><strong>Power density</strong></td><td class="mono">371.89 W/kg</td><td>High-frequency pulsing, regenerative braking capture, backup power stabilization</td></tr>
-          <tr><td><strong>Capacitance</strong></td><td class="mono">500.92 Farad</td><td>Powers a small LED for 10+ hours; backup power for micro-computers</td></tr>
-          <tr><td><strong>Voltage</strong></td><td class="mono">1.35 V</td><td>Memory and clock backup, low-power IoT, energy harvesting</td></tr>
-          <tr><td><strong>Life cycle</strong></td><td class="mono">&gt;100,000 cycles</td><td>Consumer electronics, micro-grid storage, IoT sensor nodes</td></tr>
+          <tr><td><strong>Energy density</strong></td><td class="mono">4.59 Wh/kg</td>
+            <td></td></tr>
+
+          <tr><td><strong>Power density</strong></td><td class="mono">371.89 W/kg</td>
+            <td>High-frequency pulsing, regenerative braking capture, backup power stabilization</td></tr>
+
+          <tr><td><strong>Capacitance</strong></td><td class="mono">500.92 Farad</td>
+            <td>Powers a small LED for 10+ hours; backup power for micro-computers</td></tr>
+
+          <tr><td><strong>Voltage</strong></td><td class="mono">1.35 V</td>
+            <td>Memory and clock backup, low-power IoT, energy harvesting</td></tr>
+
+          <tr><td><strong>Life cycle</strong></td><td class="mono">&gt;100,000 cycles</td>
+            <td>Consumer electronics, micro-grid storage, IoT sensor nodes</td></tr>
         </tbody>
       </table>
     </div>
@@ -484,27 +487,27 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-9">
-        <span class="eyebrow" style="color:#D9C89A;">Conclusion</span>
+        <span class="eyebrow" style="color:var(--red-accent);">Conclusion</span>
         <p class="conclusion-quote">Biochar produced from coconut shell waste can be used as an electrode material in a supercapacitor. The material shows <strong>sufficient electric conductivity</strong> and <strong>capacity</strong>, with efficient distribution of stored electricity. These findings suggest coconut-shell biochar has potential as a low-cost, waste-derived electrode material — with the added benefit of diverting agricultural waste from open burning and landfill decomposition.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== RECOMMENDATIONS ========== -->
+<!-- ========== FUTURE DEVELOPMENT ========== -->
 <section id="recommendation" class="rec-section">
   <div class="container">
     <div class="row g-5 align-items-start">
-      <div class="col-lg-7">
-        <span class="eyebrow">Recommendations</span>
-        <h2 class="fw-bold mb-4" style="font-size:clamp(1.8rem,3vw,2.3rem);">Future recommendations &amp; limitations</h2>
-        <p style="color:var(--ink-soft);">Supercapacitors are gaining attention globally as an energy storage technology, and their constant charge-discharge mechanism gives them potential to complement or replace conventional batteries in some applications.</p>
-        <p style="color:var(--ink-soft);">This study has limitations. The current build <mark>uses low-grade biochar and a standard electrolyte</mark>, which likely constrains performance below what the material could achieve. We recommend that future work compare this biochar against <mark>graphite-grade carbon</mark> and test with an <mark>industry-grade electrolyte</mark> to establish a more rigorous performance ceiling.</p>
+      <div class="col-lg-6">
+        <span class="eyebrow">Future Development</span>
+        <h2 class="fw-bold mb-4" style="font-size:clamp(1.8rem,3vw,2.3rem);">Scaling BioCharge Technology</h2>
+        <p style="color:var(--ink-soft);">To commercialize the BIOCHARGE technology, future development should focus on scaling the coconut-shell EDLC into a modular consumer power bank that replaces traditional lithium cells with ultra-fast charging and eco-friendly materials.</p>
+        <p style="color:var(--ink-soft);">By integrating biodegradable gel electrolytes and stackable pouch designs, the device can safely deliver high-surge energy for everyday electronics and emergency power needs while entirely bypassing lithium and cobalt supply chains.</p>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-6">
+        <h6 class="mb-3" style="font-family:'Nunito',sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);">Concept Illustration for a Potential Power Bank</h6>
         <div class="photo-slot" style="min-height:280px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="13" rx="1.5"/><circle cx="12" cy="12.5" r="3.3"/><path d="M8 6l1.2-2h5.6L16 6"/></svg>
-          <p class="ph-caption">foto sel superkapasitor</p>
+          <img src="images/Rangkaian.png" alt="Rangkaian Powerbank">
         </div>
       </div>
     </div>
@@ -517,9 +520,9 @@ footer .brand-mini{font-family:'Quicksand',sans-serif;color:#fff;font-weight:700
     <span class="eyebrow">References</span>
     <h2 class="fw-bold mb-4" style="font-size:clamp(1.6rem,2.6vw,2rem);">Sources</h2>
     <ul class="ref-list">
-      <li>UNESA. (2025). <em>Pemanfaatan Limbah Pertanian sebagai Energi Terbarukan Ramah Lingkungan.</em> Universitas Negeri Surabaya.</li>
-      <li>Pajow, Henry. (n.d.). <em>Potensi dan Pemanfaatan Limbah Kelapa.</em></li>
-      <li>Sustainable Development Goals. (n.d.). United Nations. un.org/sustainabledevelopment/sustainable-development-goals</li>
+      <li>UNESA. (2025). <em>Pemanfaatan Limbah Pertanian sebagai Energi Terbarukan Ramah Lingkungan.</em> Universitas Negeri Surabaya. <a href="https://unesa.ac.id" target="_blank" rel="noopener noreferrer">https://unesa.ac.id</a></li>
+      <li>Pajow, Henry. (n.d.). <em>Potensi dan Pemanfaatan Limbah Kelapa.</em> <a href="https://ejournal.unsrat.ac.id" target="_blank" rel="noopener noreferrer">https://ejournal.unsrat.ac.id</a></li>
+      <li>Sustainable Development Goals. (n.d.). United Nations. <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener noreferrer">https://sdgs.un.org/goals</a></li>
     </ul>
   </div>
 </section>
